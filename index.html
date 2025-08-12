@@ -1,0 +1,716 @@
+98%<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pete Willemsen - Computer Science</title>
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: 'Georgia', 'Times New Roman', serif;
+          line-height: 1.6;
+          color: #333;
+          background-color: #fff;
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 40px 20px;
+      }
+
+      header {
+          border-bottom: 3px solid #7a0019;
+          padding-bottom: 20px;
+          margin-bottom: 40px;
+          display: flex;
+          align-items: flex-start;
+          gap: 20px;
+      }
+
+      .university-logo {
+          width: 60px;
+          height: 60px;
+          background-color: #f0f0f0;
+          border: 2px solid #7a0019;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #7a0019;
+          font-size: 10px;
+          text-align: center;
+          overflow: hidden;
+          flex-shrink: 0;
+          order: 3;
+      }
+
+      .university-logo img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+      }
+
+      .header-content {
+          flex: 1;
+          order: 2;
+      }
+
+      .profile-photo {
+          width: 180px;
+          height: 240px;
+          background-color: #f0f0f0;
+          border: 3px solid #7a0019;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #7a0019;
+          font-size: 14px;
+          text-align: center;
+          flex-shrink: 0;
+          order: 1;
+      }
+
+      h1 {
+          font-size: 2.8em;
+          font-weight: normal;
+          color: #7a0019;
+          margin-bottom: 10px;
+      }
+
+      .subtitle {
+          font-size: 1.3em;
+          color: #b8860b;
+          font-weight: bold;
+          margin-bottom: 5px;
+      }
+
+      .affiliation {
+          font-size: 1.1em;
+          color: #666;
+          font-style: italic;
+      }
+
+      .contact-info {
+          margin-top: 15px;
+          font-size: 0.95em;
+      }
+
+      .contact-info a {
+          color: #7a0019;
+          text-decoration: none;
+      }
+
+      .contact-info a:hover {
+          text-decoration: underline;
+      }
+
+      h2 {
+          font-size: 1.8em;
+          color: #7a0019;
+          margin: 40px 0 20px 0;
+          border-bottom: 2px solid #ffcc33;
+          padding-bottom: 8px;
+      }
+
+      h3 {
+          font-size: 1.4em;
+          color: #333;
+          margin: 25px 0 15px 0;
+      }
+
+      .research-highlight {
+          background-color: #f9f7f4;
+          border-left: 5px solid #ffcc33;
+          padding: 20px;
+          margin: 20px 0;
+          border-radius: 0 5px 5px 0;
+      }
+
+      .project {
+          margin-bottom: 25px;
+          padding: 18px;
+          background-color: #f8f9fa;
+          border-left: 4px solid #7a0019;
+          border-radius: 0 5px 5px 0;
+          display: flex;
+          gap: 20px;
+          align-items: stretch;
+      }
+
+      .project-content {
+          flex: 1;
+      }
+
+      .project-image {
+          min-width: 150px;
+          max-width: 250px;
+          width: 30%;
+          min-height: 100px;
+          background-color: #e0e0e0;
+          border: 2px solid #7a0019;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #7a0019;
+          font-size: 12px;
+          text-align: center;
+          flex-shrink: 0;
+          overflow: hidden;
+      }
+
+      .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+      max-width: none;
+      }
+
+      .project-image.fixed-size {
+      width: 200px;
+      height: 150px;
+      min-width: 200px;
+      max-width: 200px;
+      min-height: 150px;
+      }
+
+      .project-image.stacked {
+      flex-direction: column;
+      gap: 10px;
+      height: auto;
+      min-height: 200px;
+      padding: 10px;
+      }
+      
+      .project-image.fixed-size img {
+      object-fit: contain;
+      }
+      
+      .project h4 {
+      font-size: 1.2em;
+      color: #7a0019;
+      margin-bottom: 10px;
+      }
+
+      .project-content p {
+      margin-bottom: 10px;
+      }
+
+      .lab-link {
+      color: #7a0019;
+      text-decoration: none;
+      font-weight: bold;
+      }
+
+      .lab-link:hover {
+      text-decoration: underline;
+      color: #b8860b;
+      }
+
+      .project-links {
+      margin-top: 15px;
+      }
+
+      .project-links a {
+      color: #7a0019;
+      text-decoration: none;
+      margin-right: 15px;
+      font-weight: bold;
+      }
+
+      .project-links a:hover {
+      text-decoration: underline;
+      color: #b8860b;
+      }
+
+      .outreach-section {
+      background-color: #fff8dc;
+      padding: 20px;
+      margin: 25px 0;
+      border: 2px solid #ffcc33;
+      border-radius: 8px;
+      }
+
+      .competition-highlight {
+      background-color: #f0f8ff;
+      padding: 15px;
+      margin: 15px 0;
+      border-left: 4px solid #7a0019;
+      border-radius: 0 5px 5px 0;
+      }
+
+      .award-years {
+      color: #7a0019;
+      font-weight: bold;
+      }
+
+      p {
+      margin-bottom: 15px;
+      text-align: justify;
+      }
+
+      .student-highlight {
+      margin-bottom: 15px;
+      padding: 12px 15px;
+      background-color: #fffbf0;
+      border-left: 4px solid #ffcc33;
+      border-radius: 0 5px 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      }
+
+      .student-info {
+      flex: 1;
+      }
+
+      .student-highlight h5 {
+      font-size: 1.1em;
+      color: #b8860b;
+      margin-bottom: 5px;
+      font-weight: bold;
+      }
+
+      .student-name {
+      font-size: 0.95em;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 5px;
+      }
+
+      .student-highlight p {
+      font-size: 0.9em;
+      margin-bottom: 8px;
+      line-height: 1.4;
+      }
+
+      .student-links {
+      margin-top: 8px;
+      }
+
+      .student-links a {
+      color: #b8860b;
+      text-decoration: none;
+      font-size: 0.85em;
+      margin-right: 12px;
+      font-weight: bold;
+      }
+
+      .student-links a:hover {
+      text-decoration: underline;
+      color: #7a0019;
+      }
+
+      .ms-badge {
+      background-color: #ffcc33;
+      color: #7a0019;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.75em;
+      font-weight: bold;
+      flex-shrink: 0;
+      text-transform: uppercase;
+      }
+
+      .emphasis {
+      background-color: #ffcc33;
+      color: #7a0019;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-weight: bold;
+      }
+
+      .citation {
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-left: 3px solid #ffcc33;
+      padding: 12px 15px;
+      margin: 15px 0;
+      font-size: 0.9em;
+      line-height: 1.4;
+      border-radius: 0 5px 5px 0;
+      color: #495057;
+      font-style: italic;
+      }
+
+      footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 2px solid #7a0019;
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+      }
+
+      @media (max-width: 600px) {
+      body {
+      padding: 20px 15px;
+      }
+      
+      h1 {
+      font-size: 2.2em;
+      }
+      
+      header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      }
+      
+      .header-content {
+      order: 1;
+      }
+      
+      .profile-photo {
+      order: 2;
+      }
+      
+      .university-logo {
+      order: 3;
+      margin-top: 15px;
+      }
+      
+      .profile-photo {
+      width: 150px;
+      height: 200px;
+      }
+      
+      .project {
+      flex-direction: column;
+      }
+      
+                 /* Mobile project image styles */
+            .project-image {
+                width: 100%;
+                min-width: unset;
+                max-width: unset;
+                height: auto;
+                min-height: 120px;
+                max-height: 250px;
+                margin-top: 15px;
+            }
+
+            .project-image img {
+                width: 100% !important;
+                height: auto !important;
+                max-height: 250px;
+                object-fit: contain !important;
+                max-width: none !important;
+            }
+
+            .project-image.fixed-size {
+                width: 100%;
+                height: auto;
+                min-height: 120px;
+                max-height: 200px;
+                min-width: unset;
+                max-width: unset;
+            }
+
+            .project-image.fixed-size img {
+                height: auto !important;
+                max-height: 200px;
+            }
+
+            .project-image.stacked {
+                min-height: 150px;
+                padding: 8px;
+            }
+
+            .project-image.stacked img {
+                max-height: 100px;
+            }
+      
+      .research-highlight, .project, .outreach-section {
+      padding: 15px;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="profile-photo">
+        <img src="images/Willemsen_Pete_web.png" width="98%"/>
+      </div>
+      <div class="header-content">
+        <h1>Pete Willemsen</h1>
+        <div class="subtitle">Professor, Dept Head</div>
+	<div class="affiliation">Department of Computer Science</div>
+        <div class="affiliation">University of Minnesota Duluth</div>
+        <div class="contact-info">
+          <!-- <a href="mailto:willemsn@d.umn.edu">willemsn@d.umn.edu</a> |  -->
+          Office: Heller Hall, 1114 Kirby Dr, Duluth, MN
+        </div>
+      </div>
+      <div class="university-logo">
+        <a href="https://www.d.umn.edu"><img src="images/UMN-Duluth-Wordmark-Stacked-Maroon+Black.jpg"/></a>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2>Research Overview</h2>
+        <div class="research-highlight">
+          <p>I am a Professor in the Department of Computer
+	    Science at the University of Minnesota Duluth (UMD). I teach a variety
+	    of classes on computer science and conduct research activities with
+	    both undergraduate and graduate students. My research interests focus
+	    on a combination of developing simulation codes and effective
+	    interaction related to environment simulation and learning
+	    environments. I have been specifically interested in exploring
+	    effective use of virtual, augmented or mixed reality environments for
+	    education and learning. I also work on software related to large-scale
+	    simulation of urban micro-climates to investigate the impact of the
+	    built environment on wind flow, pollution dispersion and energy use. I
+	    have worked on projects related to visual perception in virtual
+	    environments investigating how humans perceive and interact with
+	    simulated 3D worlds.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Currently Active Projects</h2>
+        
+        <div class="project">
+          <div class="project-content">
+	    <h4>Tarrytown - Learning in Immersive Virtual Environments</h4>
+	    <p>This interdisciplinary project spans Computer Science, Communications and the Digital Arts working with PIs Edward Downs and Betsy Hunt.
+	      Working with the PIs, students from CS, Communication and the Arts have developed an interactive, virtual environment in which to investigate aspects of learning. The immersive environment
+	      visuals and story is based on Tarrytown and the Old Dutch Church of Sleepy Hollow Cemetery <a href="https://sleepyhollowcemetery.org/">https://sleepyhollowcemetery.org/</a>. The goal of this project is to create stimulus material that can be used to experimentally test learning in VR, as well as to create an interactive VR experience for students and members of the community to enjoy. The multidisciplinary nature of this project showcases how art, social science, computer science, and digital production can work synergistically to advance what we know about learning in VREs.
+	  </div>
+	  <div class="project-image">
+	    <img src="images/tarrytown_Nellie.png"/>
+          </div>
+	</div>
+
+	<div class="project">
+          <div class="project-content">
+	    <h4>QES - Quick Environmental Simulation</h4>
+	    <p>A collaborative project including researchers at the University of Utah, the Quick Environmental Simulation (QES) code is a low-computational-cost framework designed to compute high-resolution wind and concentration fields in complex atmospheric-boundary-layer environments. QES is written in C++ and NVIDIA's CUDA to utilize accelerated computation. Documentation for QES is maintained here: <a href="https://qes-documentation.readthedocs.io/en/latest/">https://qes-documentation.readthedocs.io/en/latest</a>. The publicly available release of this software is available on github: <a href="https://github.com/UtahEFD/QES-Public">https://github.com/UtahEFD/QES-Public</a>.
+
+	      <div class="citation">
+		Bozorgmehr, B., Willemsen, P., Gibbs, J. A., Stoll, R., Kim, J.-J., Patterson, Z., & Pardyjak, E. R. (2025). Improving the performance of a reduced-order mass-consistent model for urban environments and complex terrain with a higher-order geometrical representation. Journal of Advances in Modeling Earth Systems, 17, e2024MS004494. https://doi.org/10.1029/2024MS004494
+	      </div>
+	      <div class="citation">Behnam Bozorgmehr, Pete Willemsen, Jeremy A. Gibbs, Rob Stoll, Jae-Jin Kim, Eric R. Pardyjak, Utilizing dynamic parallelism in CUDA to accelerate a 3D red-black successive over relaxation wind-field solver, Environmental Modelling & Software, Volume 137, 2021, 104958, ISSN 1364-8152, https://doi.org/10.1016/j.envsoft.2021.104958.
+	      </div>
+
+	      <div class="project-links">
+                <a href="https://github.com/UtahEFD/QES-Public">QES Github</a>
+		<a href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2024MS004494?af=R">Bozorgmehr et al., 2025</a>
+		<a href="https://www.sciencedirect.com/science/article/abs/pii/S1364815221000013?via%3Dihub">Bozorgmehr et al., 2021</a>
+              </div>
+	  </div>
+	  <div class="project-image">
+	    <img src="images/QES_chart.png"/>
+          </div>
+	</div>
+
+	<div class="project">
+          <div class="project-content">
+	    <h4>Exploring Radiance Field Content Generation for Virtual Reality - IEEE VR 2024</h4>
+	    <p>Work with Graduate Student Asif Sijan, presented as a poster at IEEE VR 2024 - Generating content for virtual reality takes effort and expanding how content can be generated has the potential to increase participation by a wider range of users well outside virtual reality researchers and programmers. This work explores some current content acquisition and generation techniques for replicating real world 3D scenes and objects to better understand the practical use and application of these techniques. The techniques explored focus on the recent emergence of radiance field-based methods and their potential to replace previous scene/object-generating techniques.
+	      <div class="citation">A. Sijan and P. Willemsen, "Exploring Radiance Field Content Generation for Virtual Reality," 2024 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW), Orlando, FL, USA, 2024, pp. 697-698, doi: 10.1109/VRW62533.2024.00145. </div>
+	      <div class="project-links">
+                <a href="https://ieeexplore.ieee.org/document/10536457">IEEE VR Explore Link</a>
+                <a href="https://ieeevr.org/2024/program/posters/">IEEE VR 2024 Posters</a>
+              </div>
+	  </div>
+	  <div class="project-image stacked">
+	    <img src="images/sijanIEEEVR2024.png"/>
+	    <img src="images/sijanIEEEVR2024_gs.png"/>
+          </div>
+	</div>
+
+      </section>
+
+      <section>
+        <h2>Selected Past Projects</h2>
+
+        <div class="project">
+          <div class="project-content">
+            <h4>Grave Errors - Exploring Motion Mechanics in Virtual Reality Learning Environments</h4>
+            <p>This project explored the affordances that locomotion type (teleportation or natural walking) may impart on learning within an immersive virtual reality environment. The study utilized a fully immersive virtual cemetery modeled after Edgar Lee Masters’ (1915) fictitious Spoon River Anthology to assess how motion mechanics related to participant navigability would influence learning outcomes, spatial updating and concepts related to spatial reconstruction. 
+	      <div class="citation">
+		Downs, E., Willemsen, P., Leff, D., Adigun, C., Kothapalli, S. S., Miller, L., Boynton, K., & Berndt, M. M. (2022). Grave Errors: Exploring the Influence of Motion Mechanics on Learning Outcomes in a Virtual Cemetery. Technology, Mind, and Behavior, 3(2: Summer 2022). <a href="https://doi.org/10.1037/tmb0000073">https://doi.org/10.1037/tmb0000073</a>
+	      </div>
+
+	      <div class="citation">
+		P. Craig, P. Willemsen, E. Downs, A. Lover and W. Barber, "Learning Environments in AR: Comparing Tablet and Head-mounted Augmented Reality Devices at Room and Table Scale," 2022 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW), Christchurch, New Zealand, 2022, pp. 892-893, doi: 10.1109/VRW55335.2022.00297.
+	      </div>
+
+	      <div class="project-links">
+                <a href="https://tmb.apaopen.org/pub/90raiyuh/release/1">Downs et al., 2022</a>
+		<a href="https://ieeexplore.ieee.org/document/9757486">Craig et al., 2022</a>
+              </div>
+          </div>
+          <div class="project-image">
+	    <img src="images/graveErrors.png"/>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-content">
+            <h4>GEnUSiS - Urban Environmental Simulation</h4>
+            <p>Simulating complex interactions between urban cities and environmental aspects of pollution dispersion and energy use, while developing immersive and interactive decision support systems for communicating simulation results.</p>
+          </div>
+          <div class="project-image">
+            Urban Simulation<br>
+            Visualization
+          </div>
+        </div>
+
+
+	<div class="student-highlight">
+	  <div class="student-info">
+	    <h5>A Ray-Traced Sampling Framework for Visualizing and Improving Material Detail in Urban Energy Simulations with QUIC EnvSim</h5>
+	    <div class="student-name">Sarmad Siddiqui, MS Student</div>
+	    <p>The hypothesis that this thesis works on is that adding micro level material details to buildings at a scale smaller than the domain discretization, will affect the energy balance calculations in the urban environment. This paper extends on QUIC EnvSim(QES) which is an extendable framework for urban climate modeling. The new model uses visual information about buildings to create more detailed calculation of material properties such as albedo, emissivity, and diffuse fraction with the urban microclimate simulation. (2015) </p>
+	    <div class="student-links">
+	      <a href="https://conservancy.umn.edu/items/51935056-f75a-47b6-bd1e-dbda7c575017">MS Thesis Page</a>
+	    </div>
+	  </div>
+	  <div class="ms-badge">MS Thesis</div>
+	</div>
+
+	
+        <div class="project">
+          <div class="project-content">
+            <h4>TPAWT Integration Project</h4>
+            <p>Developing a stereo-projection virtual environment at UMD that integrates with the University of Utah's TPAWT (TreadPort Active Wind Tunnel) to explore locomotion and haptic terrain rendering with a robotic shoe device.</p>
+          </div>
+          <div class="project-image">
+            Virtual Reality<br>
+            Environment
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-content">
+            <h4>EnvSim - A rapid radiation transfer model for complex urban domains</h4>
+            <p>This paper presents a novel, physically-based, building-resolving radiation transfer model (QESRadiant) that utilizes ray tracing techniques accelerated with graphics processing units (GPUs). QESRadiant builds on computer graphics methods, incorporating approaches for global illumination and light transport. Tests show that our methods can rapidly simulate the radiation balance for millions of surfaces with unique shapes and properties using a single consumer-class workstation.
+
+	      <div class="citation">		      
+		Matthew Overby, Peter Willemsen, Brian N. Bailey, Scot Halverson, Eric R. Pardyjak, A rapid and scalable radiation transfer model for complex urban domains, Urban Climate, Volume 15, 2016, Pages 25-44, ISSN 2212-0955, https://doi.org/10.1016/j.uclim.2015.11.004.
+	      </div>
+	      
+              <div class="project-links">
+                <a href="https://www.sciencedirect.com/science/article/abs/pii/S2212095515300353">Overby et al.,2016 Paper</a>
+              </div>
+          </div>
+          <div class="project-image">
+	    <img src="images/SLC2kx2kDomain.png"/>
+          </div>
+        </div>
+
+	<div class="student-highlight">
+	  <div class="student-info">
+	    <h5>A high performance framework for coupled urban microclimate models</h5>
+	    <div class="student-name">Matthew Overby, MS Student</div>
+	    <p>This paper introduces QUIC EnvSim (QES), a scalable, high performance framework for coupled urban microclimate models. QES allows researchers to develop and modify such models, in which tools are provided to facilitate input/output communications, model interaction, and the utilization of computational resources for efficient simulations. Common functionality of urban microclimate modeling is optimally handled by the system. By employing Graphics Processing Units (GPUs), simulations within QES can be substantially accelerated. Models for computing view factors, surface temperatures, and radiative exchange between urban materials and vegetation have been implemented and coupled into larger, more sophisticated simulations.These models can be applied to complex domains such as large forests and dense cities. (2014) </p>
+	    <div class="student-links">
+	      <a href="https://conservancy.umn.edu/items/566f06c7-4cd0-4d12-be62-728e199204b9">MS Thesis Page</a>
+	    </div>
+	  </div>
+	  <div class="ms-badge">MS Thesis</div>
+	</div>
+	
+	<div class="student-highlight">
+	  <div class="student-info">
+	    <h5>Energy transfer ray tracing with OptiX</h5>
+	    <div class="student-name">Scot Halverson, MS Student</div>
+	    <p>QUIC Energy is an energy modeling system for urban environments. Our research group has developed QUIC Energy as a part of a set of GPU-assisted tools with a common goal of increasing knowledge relating urban organization and design with environmental concerns. We hypothesize that it is possible to optimize urban organization, building placement, and material selection minimizing building energy consumption for heating and cooling, as well as minimizing air pollution exposure. Our work focuses on the interactions between urban structures and surroundings. Using this information, we are able to investigate potential strategies for optimization along a number of variables. (2012) </p>
+	    <div class="student-links">
+	      <a href="https://conservancy.umn.edu/items/eb134710-5eb7-4f81-8b29-603ea272ac16">MS Thesis Page</a>
+	    </div>
+	  </div>
+	  <div class="ms-badge">MS Thesis</div>
+	</div>
+
+	
+        <div class="project">
+          <div class="project-content">
+            <h4>Mobile Language Learning Group (MLLG)</h4>
+            <p>Interdisciplinary collaboration bringing together computer science students, foreign language students, and graphic design students to develop language learning applications.</p>
+            <div class="project-links">
+              <a href="http://www.d.umn.edu/~mllg/Site/Welcome.html">MLLG Website</a>
+              <a href="https://itunes.apple.com/us/app/umd-german-grammar-guide/id605464079?mt=8">UMD German Grammar Guide</a>
+            </div>
+          </div>
+          <div class="project-image">
+            Mobile App<br>
+            Interface
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-content">
+            <h4>Accelerating urban Lagrangian dispersion simulations</h4>
+            <p>In this paper, we describe a novel application of an existing Lagrangian dispersion modeling system to achieve real-time simulation and visualization of an urban plume that a user can interact with in a virtual environment (VE) through the utilization of commodity graphics hardware, utilizing the highly parallel computational capabilities available on graphics processing units (GPU). 
+	    <p>
+	      B. Singh, E.R. Pardyjak, A. Norgren, P. Willemsen, Accelerating urban fast response Lagrangian dispersion simulations using inexpensive graphics processor parallelism, Environmental Modelling & Software, Volume 26, Issue 6, 2011, Pages 739-750, ISSN 1364-8152, https://doi.org/10.1016/j.envsoft.2010.12.011.
+              <div class="project-links">
+                <a href="https://www.sciencedirect.com/science/article/abs/pii/S1364815210003452">Paper</a>
+              </div>
+          </div>
+          <div class="project-image">
+	    <img src="images/gpuPlume_overview.png"/>
+          </div>
+        </div>
+
+	<div class="project">
+          <div class="project-content">
+            <h4>Effects of HMD Properties on Distance Judgments in Virtual Reality</h4>
+            <p>his article describes an experiment in which distance judgments based on normal real-world and HMD viewing are compared with judgments based on real-world viewing while wearing two specialized devices. One is a mock HMD, which replicated the mass, moments of inertia, and field of view of the HMD and the other an inertial headband designed to replicate the mass and moments of inertia of the HMD, but constructed to not restrict the field of view of the observer or otherwise feel like wearing a helmet.
+	    <p>Peter Willemsen, Mark B. Colton, Sarah H. Creem-Regehr, and William B. Thompson. 2009. The effects of head-mounted display mechanical properties and field of view on distance judgments in virtual environments. ACM Trans. Appl. Percept. 6, 2, Article 8 (February 2009), 14 pages. https://doi.org/10.1145/1498700.1498702.
+              <div class="project-links">
+                <a href="https://dl.acm.org/doi/abs/10.1145/1498700.1498702">Paper</a>
+              </div>
+          </div>
+          <div class="project-image">
+	    <img src="images/distJudgements_MechProperties.png"/>
+          </div>
+        </div>
+
+
+	<div class="project">
+          <div class="project-content">
+            <h4>Ribbon networks for Modeling Paths of Autonomous Agents in Virtual Reality</h4>
+            <p>This paper presents the environment description framework (EDF) for modeling complex networks of intersecting roads and pathways in virtual environments. EDF represents information about the layout of streets and sidewalks, the rules that govern behavior on roads and walkways, and the locations of agents with respect to navigable structures. The framework serves as the substrate on which behavior programs for autonomous vehicles and pedestrians are built.
+	      <div class="citation">
+		P. Willemsen, J. K. Kearney and Hongling Wang, "Ribbon networks for modeling navigable paths of autonomous agents in virtual urban environments," IEEE Virtual Reality, 2003. Proceedings., Los Angeles, CA, USA, 2003, pp. 79-86, doi: 10.1109/VR.2003.1191124.
+	      </div>
+	      <div class="citation">
+		P. Willemsen, J. K. Kearney and H. Wang, "Ribbon networks for modeling navigable paths of autonomous agents in virtual environments," in IEEE Transactions on Visualization and Computer Graphics, vol. 12, no. 3, pp. 331-342, May-June 2006, doi: 10.1109/TVCG.2006.53.
+	      </div>
+              <div class="project-links">
+                <a href="https://ieeexplore.ieee.org/document/1191124">IEEE VR 2003 Paper</a>
+                <a href="https://ieeexplore.ieee.org/document/1608020">IEEE TVCG Journal 2006</a>
+              </div>
+          </div>
+          <div class="project-image">
+	    <img src="images/ribbonNetworks_2003.png"/>
+          </div>
+        </div>
+
+	
+      </section>
+
+      <section>
+        <h2>Student Opportunities</h2>
+        <p>I encourage computer science students to take on <span class="emphasis">interdisciplinary projects</span> across our campus. If you're interested in joining these teams, please contact me!</strong></p>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Pete Willemsen | Computer Science Department | University of Minnesota Duluth</p>
+  <p>Last updated: August 2025</p>
+</footer>
+</body>
+</html>
